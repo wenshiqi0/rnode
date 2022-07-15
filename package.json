@@ -1,0 +1,13 @@
+{
+  "name": "rust-node",
+  "version": "0.1.0",
+  "description": "node by rust",
+  "author": "Winsky Wen <wenshiqi0@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
