@@ -2,6 +2,7 @@ use std::{fs, path};
 mod console;
 mod bindings;
 mod global;
+mod settimeout;
 
 pub fn run_script_code(content: &str) {
     // todo

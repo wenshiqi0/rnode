@@ -1,4 +1,5 @@
 use crate::global::init_global;
+use crate::settimeout::settimeout_callback;
 use v8::{self};
 
 pub fn run(code: &str) {
@@ -8,6 +9,12 @@ pub fn run(code: &str) {
     let isolate = &mut v8::Isolate::new(Default::default());
     let scope = &mut v8::HandleScope::new(isolate);
     let global = v8::ObjectTemplate::new(scope);
+
+    // add settimeout support
+    global.set(
+        v8::String::new(scope, "setTimeout").unwrap().into(),
+        v8::FunctionTemplate::new(scope, settimeout_callback).into(),
+    );
 
     let context = v8::Context::new_from_template(scope, global);
     let scope = &mut v8::ContextScope::new(scope, context);
